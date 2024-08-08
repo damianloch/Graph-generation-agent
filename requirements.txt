@@ -1,0 +1,7 @@
+langchain
+openai
+matplotlib
+plotly
+shadcn
+fastapi
+uvicorn
