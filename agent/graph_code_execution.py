@@ -15,7 +15,7 @@ def execute_graph_code_safe(code: str) -> str:
     process = multiprocessing.Process(target=execute_target, args=(code, result,))
     
     process.start()
-    process.join(timeout=10)  # Timeout after 10 seconds
+    process.join(timeout=30)  # Increase timeout to 30 seconds
     
     if process.is_alive():
         process.terminate()
@@ -25,3 +25,4 @@ def execute_graph_code_safe(code: str) -> str:
         raise RuntimeError(result['error'])
 
     return result.get('output', "<p>No output generated</p>")
+
