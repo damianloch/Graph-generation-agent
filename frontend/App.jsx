@@ -6,13 +6,23 @@ function App() {
   const [graphHtml, setGraphHtml] = useState("");
 
   const handleInput = async (userInput) => {
-    const response = await fetch("/generate-graph/", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ user_input: userInput }),
-    });
-    const data = await response.json();
-    setGraphHtml(data.graph_code);
+    try {
+      const response = await fetch("/generate-graph/", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ user_input: userInput }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to generate graph");
+      }
+
+      const data = await response.json();
+      setGraphHtml(data.graph_code);
+    } catch (error) {
+      console.error("Error generating graph:", error);
+      setGraphHtml("<p>Error generating graph. Please try again.</p>");
+    }
   };
 
   return (

@@ -1,7 +1,9 @@
 langchain
-openai
+transformers
+torch
 matplotlib
 plotly
-shadcn
 fastapi
 uvicorn
+langchain_community
+torch
