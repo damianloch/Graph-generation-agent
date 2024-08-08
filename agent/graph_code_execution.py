@@ -1,23 +1,27 @@
-import plotly.graph_objects as go
-import base64
-import io
+import multiprocessing
 
-def execute_graph_code(generated_code: str):
-    # Define a safe execution environment
-    local_env = {}
-    
-    # Execute the generated Python code in this environment
+def execute_target(code: str, result):
     try:
-        exec(generated_code, {"go": go}, local_env)
-        
-        # Assuming the code generates a Plotly figure and stores it in 'fig'
-        fig = local_env.get("fig")
-        if fig is None:
-            raise ValueError("Generated code did not create a figure named 'fig'")
-        
-        # Convert the figure to HTML
-        graph_html = fig.to_html(full_html=False)
-        return graph_html
-    
+        # Define a local context to capture the output
+        local_context = {}
+        exec(code, {}, local_context)
+        result['output'] = local_context.get('output', "<p>No output generated</p>")
     except Exception as e:
-        return f"<p>Error executing graph code: {str(e)}</p>"
+        result['error'] = str(e)
+
+def execute_graph_code_safe(code: str) -> str:
+    manager = multiprocessing.Manager()
+    result = manager.dict()
+    process = multiprocessing.Process(target=execute_target, args=(code, result,))
+    
+    process.start()
+    process.join(timeout=10)  # Timeout after 10 seconds
+    
+    if process.is_alive():
+        process.terminate()
+        raise TimeoutError("Code execution timed out.")
+
+    if 'error' in result:
+        raise RuntimeError(result['error'])
+
+    return result.get('output', "<p>No output generated</p>")

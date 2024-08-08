@@ -1,7 +1,13 @@
-from transformers import AutoTokenizer, AutoModelForCausalLM, pipeline
-from langchain.chains import LLMChain
+import os
+import logging
+from dotenv import load_dotenv
+from langchain.llms import OpenAI
 from langchain.prompts import PromptTemplate
-from .graph_code_execution import execute_graph_code
+from langchain_core.runnables import RunnableSequence
+from .graph_code_execution import execute_graph_code_safe
+
+# Load environment variables from .env file
+load_dotenv()
 
 class GraphAgent:
     def __init__(self):
@@ -11,19 +17,26 @@ class GraphAgent:
         Generate Python code using Plotly to create the graph.
         """
         
-        # Load the tokenizer and model from Hugging Face (GPT-Neo)
-        self.tokenizer = AutoTokenizer.from_pretrained("EleutherAI/gpt-neo-2.7B")
-        self.model = AutoModelForCausalLM.from_pretrained("EleutherAI/gpt-neo-2.7B")
-        
-        # Set up the pipeline for text generation
-        self.pipeline = pipeline("text-generation", model=self.model, tokenizer=self.tokenizer)
+        # Use OpenAI as the LLM provider with the API key from the environment variable
+        self.llm = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
     def handle_user_request(self, user_input: str):
+        logging.info("Received user input: %s", user_input)
+        
+        # Prepare the prompt with the user's input
         prompt = self.prompt_template.format(user_input=user_input)
         
-        # Generate the Python code using the pipeline
-        generated_code = self.pipeline(prompt, max_length=150)[0]['generated_text']
+        # Generate the Python code using OpenAI API
+        logging.info("Sending request to OpenAI API...")
+        generated_code = self.llm(prompt)
+        logging.info("Received generated code: %s", generated_code)
         
         # Execute the generated code to produce the graph
-        graph_html = execute_graph_code(generated_code)
-        return graph_html
+        logging.info("Executing generated code...")
+        try:
+            graph_html = execute_graph_code_safe(generated_code)
+            logging.info("Generated graph HTML: %s", graph_html)
+            return graph_html
+        except Exception as e:
+            logging.error("Error during code execution: %s", str(e))
+            return f"<p>Error executing graph code: {str(e)}</p>"
