@@ -8,12 +8,20 @@ from .graph_code_execution import execute_graph_code_safe
 # Load environment variables from .env file
 load_dotenv()
 
+# Set up logging
+logging.basicConfig(
+    filename='generated_code.log',  # Log to a file
+    level=logging.INFO,
+    format='%(asctime)s - %(levelname)s - %(message)s',
+)
+
 class GraphAgent:
     def __init__(self):
         self.prompt_template = """
         You are an AI that generates Python code to create a graph based on the user's input. The user input is: "{user_input}" 
         Generate Python code using Plotly to create the graph. Ensure that the code does not attempt to load any resources from 
         local file paths (e.g., file://). All resources should be loaded via URLs using http:// or https://.
+
         Ensure that the code does not include any infinite loops or long-running operations.
         """
         
