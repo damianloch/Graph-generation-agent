@@ -1,13 +1,9 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 from agent.graph_agent import GraphAgent
-
-# Define the request body structure
-class GraphRequest(BaseModel):
-    user_input: str
-
 app = FastAPI()
 
 # Add CORS middleware
@@ -19,13 +15,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Define the request body structure
+class GraphRequest(BaseModel):
+    user_input: str
+
+
 graph_agent = GraphAgent()
 
 @app.post("/generate-graph/")
 async def generate_graph(request: GraphRequest):
     try:
         graph_code = graph_agent.handle_user_request(request.user_input)
-        return HTMLResponse(content=graph_code, status_code=200)
+        return JSONResponse(content={"graph_code": graph_code}, status_code=200)
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
 

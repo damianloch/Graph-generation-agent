@@ -1,0 +1,23 @@
+2024-08-12 13:49:23,485 - INFO - Received user input: Make a bar chart of olympic medals won by top 5 countries over last 4 olyympics
+2024-08-12 13:49:23,485 - INFO - Sending request to OpenAI API...
+2024-08-12 13:49:27,410 - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 200 OK"
+2024-08-12 13:49:27,417 - INFO - Generated code:
+
+import React from 'react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'shadcn';
+
+class OlympicsBarChart extends React.Component {
+  render() {
+    const data = [
+      {year: '2016', country: 'USA', medals: 121},
+      {year: '2016', country: 'China', medals: 70},
+      {year: '2016', country: 'Great Britain', medals: 67},
+      {year: '2016', country: 'Russia', medals: 56},
+      {year: '2016', country: 'Germany', medals: 42},
+      {year: '2012', country: 'USA', medals: 103},
+      {year: '2012', country: 'China', medals: 88},
+      {year: '2012', country: 'Great Britain', medals: 65},
+      {year: '2012', country: 'Russia', medals: 82},
+      {year: '2012', country: 'Germany', medals: 44},
+      {year: '2008', country: 'USA', medals: 110},
+      {year: '200
