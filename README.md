@@ -45,14 +45,20 @@ This project implements an AI agent that generates Python code for creating grap
 
 ## Usage
 
-1. Start the FastAPI server:
+1. Start the FastAPI server, in the root:
    ```bash
    uvicorn main:app --reload
    ```
 
 2. Access the API via `http://127.0.0.1:8000`. Use the `/generate-graph/` endpoint to generate graphs.
+```
+{
+    "user_input" : "Generate a graph of Canada's Population over the last 3 years"
+}
+```
 
-3. The generated Python code will be logged to both the console and a file named `generated_code.log`.
+
+4. The generated Python code will be logged to both the console and a file named `generated_code.log`.
 
 ## Example Request
 
