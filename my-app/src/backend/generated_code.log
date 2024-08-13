@@ -21,3 +21,527 @@ class OlympicsBarChart extends React.Component {
       {year: '2012', country: 'Germany', medals: 44},
       {year: '2008', country: 'USA', medals: 110},
       {year: '200
+2024-08-12 16:19:26,220 - INFO - Received user input: Create a bar chart with X values ['A', 'B', 'C'] and Y values [10, 20, 30].
+2024-08-12 16:19:26,224 - INFO - Sending request to OpenAI API...
+2024-08-12 16:19:28,594 - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 200 OK"
+2024-08-12 16:19:28,602 - INFO - Generated code:
+
+import React from "react";
+import { BarChart } from "shadcn-charts";
+
+const data = {
+  labels: ["A", "B", "C"],
+  datasets: [
+    {
+      label: "Bar Chart",
+      data: [10, 20, 30],
+      backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f"]
+    }
+  ]
+};
+
+const options = {
+  title: {
+    display: true,
+    text: "Bar Chart"
+  },
+  scales: {
+    yAxes: [
+      {
+        ticks: {
+          beginAtZero: true
+        }
+      }
+    ]
+  }
+};
+
+const BarChart = () => {
+  return (
+    <BarChart data={data} options={options} />
+  );
+};
+
+export default BarChart;
+2024-08-12 16:24:02,788 - INFO - Received user input: Create a bar chart with X values ['A', 'B', 'C'] and Y values [10, 20, 30].
+2024-08-12 16:24:02,788 - INFO - Sending request to OpenAI API...
+2024-08-12 16:24:05,863 - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 200 OK"
+2024-08-12 16:24:05,863 - INFO - Generated code:
+
+import React from 'react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'shadcn-charts';
+
+const data = [
+  {name: 'A', value: 10},
+  {name: 'B', value: 20},
+  {name: 'C', value: 30},
+];
+
+const BarChartComponent = () => {
+  return (
+    <BarChart width={500} height={300} data={data}>
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip />
+      <Legend />
+      <Bar dataKey="value" fill="#8884d8" />
+    </BarChart>
+  );
+};
+
+export default BarChartComponent;
+2024-08-12 16:25:05,127 - INFO - Received user input: Create a bar chart with X values ['A', 'B', 'C'] and Y values [10, 20, 30].
+2024-08-12 16:25:05,128 - INFO - Sending request to OpenAI API...
+2024-08-12 16:25:08,083 - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 200 OK"
+2024-08-12 16:25:08,084 - INFO - Generated code:
+
+import React from 'react';
+import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'shadcn';
+
+const data = [
+  {
+    name: 'A',
+    value: 10,
+  },
+  {
+    name: 'B',
+    value: 20,
+  },
+  {
+    name: 'C',
+    value: 30,
+  },
+];
+
+const Chart = () => {
+  return (
+    <BarChart
+      width={500}
+      height={300}
+      data={data}
+      margin={{
+        top: 5,
+        right: 30,
+        left: 20,
+        bottom: 5,
+      }}
+    >
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="name" />
+      <YAxis />
+      <Tooltip />
+      <Legend />
+      <Bar dataKey="value" fill="#8884d8" />
+    </BarChart>
+  );
+};
+
+export default Chart;
+2024-08-12 16:27:05,183 - INFO - Received user input: Create a bar chart with X values ['A', 'B', 'C'] and Y values [10, 20, 30].
+2024-08-12 16:27:05,183 - INFO - Sending request to OpenAI API...
+2024-08-12 16:27:07,100 - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 200 OK"
+2024-08-12 16:27:07,108 - INFO - Generated code:
+
+import React from 'react';
+import { BarChart } from 'shadcn';
+
+const data = {
+  labels: ['A', 'B', 'C'],
+  datasets: [{
+    label: 'Y Values',
+    data: [10, 20, 30],
+  }]
+};
+
+const options = {
+  scales: {
+    yAxes: [{
+      ticks: {
+        beginAtZero: true
+      }
+    }]
+  }
+};
+
+const BarChartComponent = () => {
+  return (
+    <BarChart data={data} options={options} />
+  );
+};
+
+export default BarChartComponent;
+2024-08-12 16:31:32,438 - INFO - Received user input: make a graph
+2024-08-12 16:31:32,438 - INFO - Sending request to OpenAI API...
+2024-08-12 16:31:34,372 - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 200 OK"
+2024-08-12 16:31:34,372 - INFO - Generated code:
+
+import React from 'react';
+import { Chart, Axis, Tooltip, Line, Point } from '@shadcn/charts';
+
+const Graph = () => {
+  const data = {
+    x: [1, 2, 3, 4, 5],
+    y: [10, 20, 30, 25, 35],
+  };
+
+  return (
+    <Chart data={data}>
+      <Axis type="x" />
+      <Axis type="y" />
+      <Tooltip />
+      <Line x="x" y="y" />
+      <Point x="x" y="y" />
+    </Chart>
+  );
+};
+
+export default Graph;
+2024-08-12 16:31:34,372 - INFO - Received user input: make a graph
+2024-08-12 16:31:34,372 - INFO - Sending request to OpenAI API...
+2024-08-12 16:31:37,417 - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 200 OK"
+2024-08-12 16:31:37,423 - INFO - Generated code:
+
+import React from 'react';
+import { BarChart } from '@shadcn/charts';
+
+const Graph = () => {
+  const data = [
+    { label: 'January', value: 100 },
+    { label: 'February', value: 200 },
+    { label: 'March', value: 300 },
+    { label: 'April', value: 400 },
+    { label: 'May', value: 500 },
+    { label: 'June', value: 600 },
+    { label: 'July', value: 700 },
+    { label: 'August', value: 800 },
+    { label: 'September', value: 900 },
+    { label: 'October', value: 1000 },
+    { label: 'November', value: 1100 },
+    { label: 'December', value: 1200 },
+  ];
+
+  return (
+    <BarChart
+      data={data}
+      xKey="label"
+      yKey="value"
+      width={500}
+      height={300}
+    />
+  );
+}
+
+export default Graph;
+2024-08-12 16:31:46,047 - INFO - Received user input: Create a bar chart with X values ['A', 'B', 'C'] and Y values [10, 20, 30].
+2024-08-12 16:31:46,047 - INFO - Sending request to OpenAI API...
+2024-08-12 16:31:48,266 - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 200 OK"
+2024-08-12 16:31:48,266 - INFO - Generated code:
+
+import React from 'react';
+import { BarChart } from 'shadcn';
+
+const BarChart = () => {
+  const data = {
+    labels: ['A', 'B', 'C'],
+    datasets: [
+      {
+        label: 'Y Values',
+        data: [10, 20, 30],
+        backgroundColor: ['rgb(255, 99, 132)', 'rgb(54, 162, 235)', 'rgb(255, 205, 86)'],
+      },
+    ],
+  };
+
+  const options = {
+    scales: {
+      y: {
+        min: 0,
+        max: 40,
+        ticks: {
+          stepSize: 10,
+        },
+      },
+    },
+  };
+
+  return <BarChart data={data} options={options} />;
+};
+
+export default BarChart;
+
+2024-08-12 16:32:06,244 - INFO - Received user input: Create a bar chart with X values ['A', 'B', 'C'] and Y values [10, 20, 30].
+2024-08-12 16:32:06,244 - INFO - Sending request to OpenAI API...
+2024-08-12 16:32:08,241 - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 200 OK"
+2024-08-12 16:32:08,243 - INFO - Generated code:
+
+import { BarChart } from 'shadcn';
+
+const data = {
+  labels: ['A', 'B', 'C'],
+  datasets: [
+    {
+      label: 'Data',
+      data: [10, 20, 30],
+      backgroundColor: '#FF6384',
+      borderColor: '#FF6384',
+      borderWidth: 1,
+    },
+  ],
+};
+
+const options = {
+  scales: {
+    yAxes: [
+      {
+        ticks: {
+          beginAtZero: true,
+        },
+      },
+    ],
+  },
+};
+
+const BarChartComponent = () => {
+  return <BarChart data={data} options={options} />;
+};
+2024-08-13 09:53:35,879 - INFO - Received user input: Generate a bar chart comparing the total sales revenue for each product category in Q1 2024 using the following data: categories ['Electronics', 'Furniture', 'Clothing', 'Home Appliances', 'Books'], revenue [120000, 85000, 75000, 95000, 40000]
+2024-08-13 09:53:35,879 - INFO - Sending request to OpenAI API...
+2024-08-13 09:53:39,423 - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 200 OK"
+2024-08-13 09:53:39,438 - INFO - Generated code:
+
+// Define the data
+const categories = ['Electronics', 'Furniture', 'Clothing', 'Home Appliances', 'Books'];
+const revenue = [120000, 85000, 75000, 95000, 40000];
+
+// Set the chart options
+const options = {
+  chart: {
+    type: 'bar',
+  },
+  title: {
+    text: 'Total Sales Revenue by Product Category - Q1 2024',
+  },
+  xAxis: {
+    categories: categories,
+  },
+  yAxis: {
+    title: {
+      text: 'Sales Revenue',
+    },
+  },
+  series: [
+    {
+      name: 'Revenue',
+      data: revenue,
+    },
+  ],
+};
+
+// Create the chart component
+const Chart = () => {
+  return <HighchartsReact highcharts={Highcharts} options={options} />;
+};
+
+// Render the chart component
+ReactDOM.render(<Chart />, document.getElementById('root'));
+2024-08-13 09:59:07,702 - INFO - Received user input: Generate a bar chart comparing the total sales revenue for each product category in Q1 2024 using the following data: categories ['Electronics', 'Furniture', 'Clothing', 'Home Appliances', 'Books'], revenue [120000, 85000, 75000, 95000, 40000].
+2024-08-13 10:00:31,391 - INFO - Received user input: Generate a bar chart comparing the total sales revenue for each product category in Q1 2024 using the following data: categories ['Electronics', 'Furniture', 'Clothing', 'Home Appliances', 'Books'], revenue [120000, 85000, 75000, 95000, 40000].
+2024-08-13 10:01:36,150 - INFO - Received user input: Generate a bar chart comparing the total sales revenue for each product category in Q1 2024 using the following data: categories ['Electronics', 'Furniture', 'Clothing', 'Home Appliances', 'Books'], revenue [120000, 85000, 75000, 95000, 40000].
+2024-08-13 10:03:01,565 - INFO - Received user input: hi
+2024-08-13 10:04:25,526 - INFO - Received user input: Create a bar chart with X values ['A', 'B', 'C'] and Y values [10, 20, 30].
+2024-08-13 10:04:31,058 - INFO - Received user input: Create a bar chart with X values ['A', 'B', 'C'] and Y values [10, 20, 30].
+2024-08-13 10:07:02,695 - INFO - Received user input: Create a bar chart with X values ['A', 'B', 'C'] and Y values [10, 20, 30].
+2024-08-13 10:09:03,763 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:09:03,763 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:09:03,763 - ERROR - Error generating graph: '\n          labels'
+2024-08-13 10:09:12,747 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:09:12,747 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:09:12,747 - ERROR - Error generating graph: '\n          labels'
+2024-08-13 10:09:43,264 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:09:43,264 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:09:43,265 - ERROR - Error generating graph: '\n          labels'
+2024-08-13 10:09:59,322 - INFO - Received user input: hi
+2024-08-13 10:09:59,322 - INFO - Received user input: hi
+2024-08-13 10:09:59,322 - ERROR - Error generating graph: '\n          labels'
+2024-08-13 10:10:43,901 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:10:43,901 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:10:43,901 - ERROR - Error generating graph: '\n          labels'
+2024-08-13 10:10:45,034 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:10:45,034 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:10:45,034 - ERROR - Error generating graph: '\n          labels'
+2024-08-13 10:10:46,137 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:10:46,137 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:10:46,137 - ERROR - Error generating graph: '\n          labels'
+2024-08-13 10:11:07,049 - INFO - Received user input: hi
+2024-08-13 10:11:07,049 - INFO - Received user input: hi
+2024-08-13 10:11:07,049 - ERROR - Error generating graph: '\n          labels'
+2024-08-13 10:14:51,014 - INFO - Received user input: hi
+2024-08-13 10:14:51,014 - INFO - Received user input: hi
+2024-08-13 10:14:51,014 - ERROR - Error generating graph: '\n          labels'
+2024-08-13 10:15:57,280 - INFO - Received user input: hi
+2024-08-13 10:15:57,280 - INFO - Received user input: hi
+2024-08-13 10:15:57,280 - ERROR - Error generating graph: '\n          labels'
+2024-08-13 10:31:47,082 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:31:47,082 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:31:47,082 - ERROR - Error generating graph: '\n          labels'
+2024-08-13 10:31:54,583 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:31:54,583 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:31:54,583 - ERROR - Error generating graph: '\n          labels'
+2024-08-13 10:32:38,207 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:32:38,207 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:32:38,207 - INFO - Sending request to OpenAI API...
+2024-08-13 10:32:41,153 - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 200 OK"
+2024-08-13 10:32:41,169 - INFO - Generated code:
+// 1. Define the data for the chart
+        const data = {
+            labels: ['Electronics', 'Furniture', 'Clothing'],
+            datasets: [{
+                label: 'Total Sales Revenue',
+                data: [120000, 85000, 75000],
+                backgroundColor: ['rgba(255, 99, 132, 0.2)', 'rgba(54, 162, 235, 0.2)', 'rgba(255, 206, 86, 0.2)'],
+                borderColor: ['rgba(255, 99, 132, 1)', 'rgba(54, 162, 235, 1)', 'rgba(255, 206, 86, 1)'],
+                borderWidth: 1
+            }]
+        };
+
+        // 2. Set the options for the chart
+        const options = {
+            scales: {
+                yAxes: [{
+                    ticks: {
+                        beginAtZero: true
+                    }
+                }]
+            }
+        };
+
+        // 3. Create a React functional component that returns the chart
+        const BarChart = () => {
+            return (
+                <Bar
+                    data={data}
+                    options={options}
+                />
+            );
+        };
+
+       
+2024-08-13 10:33:17,172 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:33:17,172 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:33:17,172 - ERROR - Error generating graph: '\n          labels'
+2024-08-13 10:35:30,730 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:35:30,730 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:35:30,730 - ERROR - Error generating graph: '\n  labels'
+2024-08-13 10:35:33,783 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:35:33,783 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:35:33,783 - ERROR - Error generating graph: '\n  labels'
+2024-08-13 10:36:37,499 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:36:37,499 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:36:37,499 - ERROR - Error generating graph: '\n        labels'
+2024-08-13 10:36:57,766 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:36:57,766 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:36:57,766 - ERROR - Error generating graph: 'labels'
+2024-08-13 10:38:36,287 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:38:36,287 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:38:36,287 - ERROR - Error generating graph: '\n        labels'
+2024-08-13 10:40:38,298 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:40:38,298 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:40:38,298 - INFO - Sending request to OpenAI API...
+2024-08-13 10:40:40,537 - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 200 OK"
+2024-08-13 10:40:40,554 - INFO - Generated code:
+const data = {
+            "labels": ["Electronics", "Furniture", "Clothing"],
+            "datasets": [{
+                "label": "Total Sales Revenue by Category",
+                "data": [120000, 85000, 75000],
+                "backgroundColor": ["#39A2DB", "#F9C80E", "#F86624"]
+            }]
+        };
+
+        const options = {
+            "responsive": true,
+            "plugins": {
+                "legend": {
+                    "display": false
+                },
+                "title": {
+                    "display": true,
+                    "text": "Total Sales Revenue by Category"
+                }
+            },
+            "scales": {
+                "y": {
+                    "ticks": {
+                        "beginAtZero": true
+                    }
+                }
+            }
+        };
+
+        const MyChart = () => {
+            return (
+                <BarChart data={data} options={options} />
+            );
+        };
+2024-08-13 10:43:01,125 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:43:01,133 - INFO - Received user input: Generate a bar chart comparing total sales revenue by category with the following data: categories ['Electronics', 'Furniture', 'Clothing'], revenue [120000, 85000, 75000].
+2024-08-13 10:43:01,133 - INFO - Sending request to OpenAI API...
+2024-08-13 10:43:03,383 - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 200 OK"
+2024-08-13 10:43:03,392 - INFO - Generated code:
+
+const data = {
+  labels: ["Electronics", "Furniture", "Clothing"],
+  datasets: [{
+    label: "Total Sales Revenue",
+    data: [120000, 85000, 75000]
+  }]
+};
+
+const options = {
+  responsive: true,
+  plugins: {
+    title: {
+      display: true,
+      text: "Total Sales Revenue by Category"
+    },
+    scales: {
+      y: {
+        title: {
+          display: true,
+          text: "Sales Revenue"
+        }
+      }
+    }
+  }
+};
+
+const MyChart = () => {
+  return (
+    <BarChart data={data} options={options} />
+  );
+};
+2024-08-13 10:43:25,969 - INFO - Received user input: Generate a bar chart comparing the total sales revenue for each product category in Q1 2024 using the following data: categories ['Electronics', 'Furniture', 'Clothing', 'Home Appliances', 'Books'], revenue [120000, 85000, 75000, 95000, 40000].
+2024-08-13 10:43:25,969 - INFO - Received user input: Generate a bar chart comparing the total sales revenue for each product category in Q1 2024 using the following data: categories ['Electronics', 'Furniture', 'Clothing', 'Home Appliances', 'Books'], revenue [120000, 85000, 75000, 95000, 40000].
+2024-08-13 10:43:25,969 - INFO - Sending request to OpenAI API...
+2024-08-13 10:43:27,772 - INFO - HTTP Request: POST https://api.openai.com/v1/completions "HTTP/1.1 200 OK"
+2024-08-13 10:43:27,780 - INFO - Generated code:
+ const data = {
+           "labels": ["Electronics", "Furniture", "Clothing", "Home Appliances", "Books"],
+           "datasets": [{ "label": "Revenue", "data": [120000, 85000, 75000, 95000, 40000] }]
+         };
+
+         const options = {
+           "responsive": true,
+           "plugins": { /* your plugin options here */ }
+         };
+
+         const MyChart = () => {
+           return (
+             <BarChart data={data} options={options} />
+           );
+         };
+
+         
+
+

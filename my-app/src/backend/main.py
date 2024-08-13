@@ -22,13 +22,18 @@ class GraphRequest(BaseModel):
 
 graph_agent = GraphAgent()
 
+import logging
+
 @app.post("/generate-graph/")
 async def generate_graph(request: GraphRequest):
     try:
+        logging.info(f"Received user input: {request.user_input}")
         graph_code = graph_agent.handle_user_request(request.user_input)
         return JSONResponse(content={"graph_code": graph_code}, status_code=200)
     except Exception as e:
+        logging.error(f"Error generating graph: {e}")
         raise HTTPException(status_code=400, detail=str(e))
+
 
 @app.get("/")
 async def root():
